@@ -19,13 +19,15 @@ $(document).ready(function(){
 		} else {
 			$('<li class="items"></li>').appendTo('#list').html('<span class="box">   <span>' + txtval + '<span class="delete">');
 
-		document.getElementById('items').value = '';
+		document.getElementById('add-item').value = '';
 		};
 	});
 
 //delete list items
-	$('#list').on('click', '.delete', function(e){e.preventDefault(); $(this).parent().remove()});
-
+	$('#list').on('click', '.delete', function(e){
+		e.preventDefault(); 
+		$(this).closest('li').remove();
+	});
 //cross off list items
 	$('#list').on('click', 'li', function(){$(this).toggleClass('strike'); $(this).children('.items').toggleClass('checked');});
 
